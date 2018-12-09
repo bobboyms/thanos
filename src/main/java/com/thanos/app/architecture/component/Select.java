@@ -1,5 +1,6 @@
 package com.thanos.app.architecture.component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Select extends Componente implements MultipleOptions {	
@@ -8,7 +9,7 @@ public class Select extends Componente implements MultipleOptions {
 	
 	private String index = "";
 	private String idDetail = "";
-	private List<Option> options;
+	private List<Option> options = new ArrayList<>();
 	
 	public Select(String id, String label) {
 		super(id, label, "");
