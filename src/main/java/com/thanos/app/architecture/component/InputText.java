@@ -2,9 +2,6 @@ package com.thanos.app.architecture.component;
 
 public class InputText extends Componente {
 	
-//	{tipo:"password", id:3, valor:"", placeholder:"", label: "Digite sua senha"},
-	
-	
 	private final String tipo = "text";
 	
 	private String placeholder = "";

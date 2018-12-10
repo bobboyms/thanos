@@ -7,19 +7,18 @@ import java.util.UUID;
 import com.google.gson.Gson;
 import com.thanos.app.architecture.annotations.Component;
 import com.thanos.app.architecture.annotations.HtmlForm;
+import com.thanos.app.architecture.component.InputPassword;
 import com.thanos.app.architecture.component.InputText;
 import com.thanos.run.model.Cliente;
 
 public class Teste {
 	
-	public static void main(String[] args) {
-		
-		Class classe = Cliente.class;
+	public static Formulario fitTransform(Class classe) {
 		
 		HtmlForm htmlForm = (HtmlForm) classe.getAnnotation(HtmlForm.class);
 		
 		if (htmlForm == null) {
-			return;
+			return null;
 		}
 		
 		Formulario formulario = new Formulario();
@@ -43,10 +42,24 @@ public class Teste {
 				formulario.getFormulario().add(inputText);
 			}
 			
+			if (component.type().equals("password")) {
+				
+				System.out.println(component.type());
+				
+				InputPassword password = new InputPassword(component.label(), id, component.defaultValue());
+				formulario.getFormulario().add(password);
+			}
+			
 		}
+		return formulario;
+	}
+	
+	public static void main(String[] args) {
+		
+		
 		
 		Gson gson = new Gson();
-		System.out.println(gson.toJson(formulario));
+		System.out.println(gson.toJson(fitTransform(Cliente.class)));
 		
 //		for (AnnotatedType anotation : classe.getAnnotatedInterfaces()) {
 //			System.out.println(anotation.getType());

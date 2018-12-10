@@ -6,13 +6,17 @@ import com.thanos.app.architecture.annotations.HtmlForm;
 @HtmlForm
 public class Cliente {
 
-	private String outro;
+	@Component(type="password", label="Digite seu senha")
+	private String senha;
 	
 	@Component(type="text", label="Digite seu nome")
 	private String nome;
 	
 	@Component(type="text", label="Digite sua idade")
 	private Long idade;
+	
+	@Component(type="text", label="Digite sua treta do dia")
+	private Long treta;
 	
 
 	public String getNome() {
@@ -31,12 +35,20 @@ public class Cliente {
 		this.idade = idade;
 	}
 
-	public String getOutro() {
-		return outro;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setOutro(String outro) {
-		this.outro = outro;
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public Long getTreta() {
+		return treta;
+	}
+
+	public void setTreta(Long treta) {
+		this.treta = treta;
 	}
 
 }
